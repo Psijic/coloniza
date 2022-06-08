@@ -1,6 +1,7 @@
 package com.psvoid.coloniza.city.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
+import com.psvoid.coloniza.city.data.network.Config
 import com.psvoid.coloniza.city.presentation.views.BuildingDto
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -8,6 +9,8 @@ import kotlinx.coroutines.flow.StateFlow
 
 @ExperimentalCoroutinesApi
 class CityViewModel : ViewModel() {
+    val size = Config.City.height * Config.City.width * 2
+
     private var _isUiVisible = MutableStateFlow(true)
     val isUiVisible: StateFlow<Boolean> = _isUiVisible
 

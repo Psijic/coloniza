@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.toColorInt
 import com.psvoid.coloniza.R
+import com.psvoid.coloniza.city.data.network.Config
 import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -48,15 +49,12 @@ private fun MapTopBarPreview() {
 fun CityView(
     viewModel: CityViewModel,
 ) {
-//    val buildings by viewModel.buildings.collectAsState()
-    val buildings = listOf(BuildingDto(),BuildingDto(),BuildingDto(),BuildingDto(),BuildingDto(),BuildingDto())
-
-    Building(0)
+    val buildings by viewModel.buildings.collectAsState()
 
     LazyHorizontalGrid(
-        rows = GridCells.Fixed(3)
+        rows = GridCells.Fixed(Config.City.height)
     ) {
-        items(buildings.size) {
+        items(viewModel.size) {
             Building(it)
         }
     }
