@@ -23,13 +23,15 @@ import com.psvoid.coloniza.city.presentation.ui.MapNavGraph
 import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
+@ExperimentalPermissionsApi
 @ExperimentalMaterialApi
 @ExperimentalMaterial3Api
 @Preview
 @Composable
 private fun MapTopBarPreview() {
     MainTheme {
-        MapTopBar()
+        CityScreen(CityViewModel())
     }
 }
 
@@ -45,7 +47,6 @@ fun CityScreen(
 
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberBottomSheetState(
-//            initialValue = if (selectedEvent != null) BottomSheetValue.Expanded else BottomSheetValue.Collapsed
             initialValue = BottomSheetValue.Collapsed
         )
     )

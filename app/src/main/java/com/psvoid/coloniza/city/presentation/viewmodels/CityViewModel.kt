@@ -1,13 +1,13 @@
 package com.psvoid.coloniza.city.presentation.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import com.psvoid.coloniza.city.presentation.views.BuildingDto
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 @ExperimentalCoroutinesApi
-class CityViewModel(application: Application) : AndroidViewModel(application) {
+class CityViewModel : ViewModel() {
     private var _isUiVisible = MutableStateFlow(true)
     val isUiVisible: StateFlow<Boolean> = _isUiVisible
 
@@ -19,5 +19,17 @@ class CityViewModel(application: Application) : AndroidViewModel(application) {
         _isUiVisible.value = !_isUiVisible.value
     }
 
+    private var buildingsArr = arrayOf(
+        arrayOf(BuildingDto(), BuildingDto(), BuildingDto()),
+        arrayOf(BuildingDto(), BuildingDto(), BuildingDto()),
+        arrayOf(BuildingDto(), BuildingDto(), BuildingDto()),
+    )
+
+    private var _buildings = MutableStateFlow(buildingsArr)
+    val buildings: StateFlow<Array<Array<BuildingDto>>> = _buildings
+
+    fun setBuilding(x: Int, y: Int, value: BuildingDto) {
+        _buildings.value[x][y] = value
+    }
 
 }

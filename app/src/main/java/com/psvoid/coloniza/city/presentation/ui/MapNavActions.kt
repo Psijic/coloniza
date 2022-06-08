@@ -9,24 +9,23 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.psvoid.coloniza.city.presentation.ui.MapDestinations.LIST
 import com.psvoid.coloniza.city.presentation.ui.MapDestinations.MAP
 import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
+import com.psvoid.coloniza.city.presentation.views.CityView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class MapNavActions(navController: NavHostController) {
     val navigateToList: () -> Unit = {
-        navController.navigate(LIST)
+//        navController.navigate(LIST)
     }
 }
 
 object MapDestinations {
     const val MAP = "map"
-    const val LIST = "list"
+//    const val LIST = "list"
 }
 
 @ExperimentalPermissionsApi
-@SuppressLint("MissingPermission")
 @ExperimentalMaterialApi
 @ExperimentalCoroutinesApi
 @ExperimentalMaterial3Api
@@ -43,7 +42,7 @@ fun MapNavGraph(
         modifier = modifier,
     ) {
         composable(MAP) {
-//            MapView(fusedLocationWrapper = locationWrapper, viewModel = viewModel)
+            CityView(viewModel = viewModel)
         }
     }
 }
