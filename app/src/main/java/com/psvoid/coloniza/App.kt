@@ -1,9 +1,6 @@
 package com.psvoid.coloniza
 
 import android.app.Application
-import android.content.Context
-import android.telephony.TelephonyManager
-import com.psvoid.coloniza.city.data.network.Config
 import timber.log.Timber
 
 class App : Application() {

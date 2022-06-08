@@ -1,4 +1,4 @@
-package com.psvoid.coloniza.city.presentation
+package com.psvoid.coloniza.world.city.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,8 +9,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.ExperimentalComposeApi
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
-import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
-import com.psvoid.coloniza.city.presentation.views.CityScreen
+import com.psvoid.coloniza.world.city.presentation.viewmodels.CityViewModel
+import com.psvoid.coloniza.world.city.presentation.views.CityScreen
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalPermissionsApi

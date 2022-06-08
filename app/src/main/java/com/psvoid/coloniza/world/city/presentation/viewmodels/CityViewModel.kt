@@ -1,15 +1,16 @@
-package com.psvoid.coloniza.city.presentation.viewmodels
+package com.psvoid.coloniza.world.city.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.psvoid.coloniza.city.data.network.Config
-import com.psvoid.coloniza.city.presentation.views.BuildingDto
+import com.psvoid.coloniza.world.city.domain.BuildingsMap
+import com.psvoid.coloniza.world.city.domain.City
+import com.psvoid.coloniza.world.city.presentation.views.BuildingDto
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 @ExperimentalCoroutinesApi
 class CityViewModel : ViewModel() {
-    val size = Config.City.height * Config.City.width * 2
+    val city = City()
 
     private var _isUiVisible = MutableStateFlow(true)
     val isUiVisible: StateFlow<Boolean> = _isUiVisible
@@ -22,17 +23,16 @@ class CityViewModel : ViewModel() {
         _isUiVisible.value = !_isUiVisible.value
     }
 
-    private var buildingsArr = arrayOf(
-        arrayOf(BuildingDto(), BuildingDto(), BuildingDto()),
-        arrayOf(BuildingDto(), BuildingDto(), BuildingDto()),
-        arrayOf(BuildingDto(), BuildingDto(), BuildingDto()),
-    )
-
-    private var _buildings = MutableStateFlow(buildingsArr)
-    val buildings: StateFlow<Array<Array<BuildingDto>>> = _buildings
+    private var _buildings: MutableStateFlow<BuildingsMap> = MutableStateFlow(city.buildings)
+    val buildings: StateFlow<BuildingsMap> = _buildings
 
     fun setBuilding(x: Int, y: Int, value: BuildingDto) {
         _buildings.value[x][y] = value
+    }
+
+    init {
+
+
     }
 
 }

@@ -1,4 +1,4 @@
-package com.psvoid.coloniza.city.domain.people
+package com.psvoid.coloniza.world.city.domain.people
 
 import kotlin.random.Random
 

@@ -1,4 +1,4 @@
-package com.psvoid.coloniza.city.presentation.views
+package com.psvoid.coloniza.world.city.presentation.views
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
@@ -18,9 +18,9 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.psvoid.coloniza.R
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
-import com.psvoid.coloniza.city.presentation.ui.MapNavActions
-import com.psvoid.coloniza.city.presentation.ui.MapNavGraph
-import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
+import com.psvoid.coloniza.world.city.presentation.ui.MapNavActions
+import com.psvoid.coloniza.world.city.presentation.ui.MapNavGraph
+import com.psvoid.coloniza.world.city.presentation.viewmodels.CityViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
@@ -29,7 +29,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalMaterial3Api
 @Preview
 @Composable
-private fun MapTopBarPreview() {
+private fun CityPreview() {
     MainTheme {
         CityScreen(CityViewModel())
     }

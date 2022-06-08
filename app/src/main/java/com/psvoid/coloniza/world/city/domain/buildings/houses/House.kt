@@ -1,6 +1,7 @@
-package com.psvoid.coloniza.city.domain.buildings
+package com.psvoid.coloniza.world.city.domain.buildings.houses
 
-open class House: Building() {
+//open class House: Building() {
+open class House {
     var comfortRatio = 0
     var rent = 0
     var upgrades = 0 //conditioner, radio, other stuff

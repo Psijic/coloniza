@@ -1,14 +1,14 @@
 package com.psvoid.coloniza.world.towns.people
 
-import android.media.Image
-import com.psvoid.coloniza.city.domain.people.Attributes
-import com.psvoid.coloniza.city.domain.buildings.Building
-import com.psvoid.coloniza.city.domain.buildings.House
+import androidx.annotation.DrawableRes
+import com.psvoid.coloniza.world.city.domain.buildings.Building
+import com.psvoid.coloniza.world.city.domain.buildings.houses.House
+import com.psvoid.coloniza.world.city.domain.people.Attributes
 import com.psvoid.coloniza.world.towns.items.Item
 
 class Human {
 
-    var portrait: Image? = null
+    @DrawableRes var portrait: Int? = null
 
     var skills: Skills = Skills()
     var needs: Needs = Needs()

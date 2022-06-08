@@ -1,6 +1,5 @@
-package com.psvoid.coloniza.city.presentation.ui
+package com.psvoid.coloniza.world.city.presentation.ui
 
-import android.annotation.SuppressLint
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
@@ -9,9 +8,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.psvoid.coloniza.city.presentation.ui.MapDestinations.MAP
-import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
-import com.psvoid.coloniza.city.presentation.views.CityView
+import com.psvoid.coloniza.world.city.presentation.ui.MapDestinations.MAP
+import com.psvoid.coloniza.world.city.presentation.viewmodels.CityViewModel
+import com.psvoid.coloniza.world.city.presentation.views.CityView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class MapNavActions(navController: NavHostController) {
