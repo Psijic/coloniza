@@ -33,7 +33,7 @@
             android:value="${google_maps_key}" />
 
         <activity
-            android:name="com.psvoid.coloniza.map.presentation.MapActivity"
+            android:name="com.psvoid.coloniza.city.presentation.CityActivity"
             android:exported="true"
             android:label="@string/title_activity_main">
             <intent-filter>

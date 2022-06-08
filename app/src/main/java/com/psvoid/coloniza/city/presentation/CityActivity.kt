@@ -1,4 +1,4 @@
-package com.psvoid.coloniza.map.presentation
+package com.psvoid.coloniza.city.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,9 +9,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.ExperimentalComposeApi
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
-import com.psvoid.coloniza.common.presentation.utils.fusedLocationWrapper
-import com.psvoid.coloniza.map.presentation.viewmodels.MapViewModel
-import com.psvoid.coloniza.map.presentation.views.compose.MapScreen
+import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
+import com.psvoid.coloniza.city.presentation.views.CityScreen
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalPermissionsApi
@@ -19,8 +18,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalCoroutinesApi
 @ExperimentalMaterialApi
 @ExperimentalMaterial3Api
-class MapActivity : ComponentActivity() {
-    private val viewModel: MapViewModel by viewModels()
+class CityActivity : ComponentActivity() {
+    private val viewModel: CityViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +31,7 @@ class MapActivity : ComponentActivity() {
         setContent {
 //            ProvideWindowInsets {
                 MainTheme {
-                    MapScreen(viewModel, locationWrapper = fusedLocationWrapper())
+                    CityScreen(viewModel)
                 }
 //            }
         }

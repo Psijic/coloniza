@@ -1,4 +1,4 @@
-package com.psvoid.coloniza.map.presentation.ui
+package com.psvoid.coloniza.city.presentation.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.material.ExperimentalMaterialApi
@@ -9,11 +9,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.psvoid.coloniza.common.presentation.utils.FusedLocationWrapper
-import com.psvoid.coloniza.map.presentation.ui.MapDestinations.LIST
-import com.psvoid.coloniza.map.presentation.ui.MapDestinations.MAP
-import com.psvoid.coloniza.map.presentation.viewmodels.MapViewModel
-import com.psvoid.coloniza.map.presentation.views.compose.MapView
+import com.psvoid.coloniza.city.presentation.ui.MapDestinations.LIST
+import com.psvoid.coloniza.city.presentation.ui.MapDestinations.MAP
+import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class MapNavActions(navController: NavHostController) {
@@ -35,9 +33,8 @@ object MapDestinations {
 @Composable
 fun MapNavGraph(
     navController: NavHostController,
-    viewModel: MapViewModel,
+    viewModel: CityViewModel,
     navActions: MapNavActions,
-    locationWrapper: FusedLocationWrapper,
     modifier: Modifier = Modifier
 ) {
     NavHost(
@@ -46,7 +43,7 @@ fun MapNavGraph(
         modifier = modifier,
     ) {
         composable(MAP) {
-            MapView(fusedLocationWrapper = locationWrapper, viewModel = viewModel)
+//            MapView(fusedLocationWrapper = locationWrapper, viewModel = viewModel)
         }
     }
 }

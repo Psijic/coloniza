@@ -3,7 +3,7 @@ package com.psvoid.coloniza
 import android.app.Application
 import android.content.Context
 import android.telephony.TelephonyManager
-import com.psvoid.coloniza.map.data.network.Config
+import com.psvoid.coloniza.city.data.network.Config
 import timber.log.Timber
 
 class App : Application() {
@@ -12,13 +12,6 @@ class App : Application() {
         super.onCreate()
 
         Timber.plant(if (BuildConfig.DEBUG) Timber.DebugTree() else CrashReportingTree())
-        //        FirebaseApp.initializeApp(this)
-
-        val tm = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-//        val countryCode = tm.networkCountryIso.uppercase()
-        val countryCode = "DE"
-        Config.countries.add(countryCode)
-        Timber.i("Network country code: $countryCode")
     }
 }
 

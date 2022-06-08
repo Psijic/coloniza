@@ -153,10 +153,10 @@ dependencies {
     implementation(Libs.Network.Ktor.logging)
 
     //Extra
-    implementation(Libs.Extra.ratingBar)
+//    implementation(Libs.Extra.ratingBar)
 
     // Firebase
-    implementation(Libs.Firebase.database)
+//    implementation(Libs.Firebase.database)
 
     // Room
     implementation(Libs.Database.roomRuntime)
@@ -164,7 +164,7 @@ dependencies {
     kapt(Libs.Database.roomCompiler)
 
     // Maps
-    implementation (Libs.Google.Maps.mapsCompose)
+//    implementation (Libs.Google.Maps.mapsCompose)
 
     //Play Services
     implementation (Libs.Google.PlayServices.playServicesMaps)

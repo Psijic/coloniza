@@ -1,4 +1,4 @@
-package com.psvoid.coloniza.map.presentation.views.compose
+package com.psvoid.coloniza.city.presentation.views
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
@@ -17,12 +17,10 @@ import com.google.accompanist.insets.navigationBarsWithImePadding
 import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.psvoid.coloniza.R
-import com.psvoid.coloniza.common.presentation.ui.theme.Dimens
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
-import com.psvoid.coloniza.common.presentation.utils.FusedLocationWrapper
-import com.psvoid.coloniza.map.presentation.ui.MapNavActions
-import com.psvoid.coloniza.map.presentation.ui.MapNavGraph
-import com.psvoid.coloniza.map.presentation.viewmodels.MapViewModel
+import com.psvoid.coloniza.city.presentation.ui.MapNavActions
+import com.psvoid.coloniza.city.presentation.ui.MapNavGraph
+import com.psvoid.coloniza.city.presentation.viewmodels.CityViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalMaterialApi
@@ -40,11 +38,9 @@ private fun MapTopBarPreview() {
 @ExperimentalMaterialApi
 @ExperimentalMaterial3Api
 @Composable
-fun MapScreen(
-    viewModel: MapViewModel,
-    locationWrapper: FusedLocationWrapper
+fun CityScreen(
+    viewModel: CityViewModel,
 ) {
-    val selectedEvent by viewModel.selectedEvent.collectAsState()
     val isUiVisible by viewModel.isUiVisible.collectAsState()
 
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
@@ -61,10 +57,10 @@ fun MapScreen(
     BottomSheetScaffold(
         modifier = Modifier.navigationBarsWithImePadding(),
         scaffoldState = bottomSheetScaffoldState,
-        sheetPeekHeight = if (selectedEvent != null) Dimens.bottomSheetPeekHeight else Dimens.bottomSheetNoHeight,
+//        sheetPeekHeight = if (selectedEvent != null) Dimens.bottomSheetPeekHeight else Dimens.bottomSheetNoHeight,
         sheetBackgroundColor = MaterialTheme.colorScheme.background,
-        sheetContent = { selectedEvent?.let { EventView(it) } },
-        topBar = { if (isUiVisible) MapTopBar() }
+        sheetContent = { },
+//        topBar = { if (isUiVisible) MapTopBar() }
     ) {
         Column(
 //            modifier = Modifier.fillMaxSize()
@@ -74,7 +70,6 @@ fun MapScreen(
                 viewModel = viewModel,
                 navActions = navActions,
                 modifier = Modifier,
-                locationWrapper = locationWrapper
             )
         }
     }
