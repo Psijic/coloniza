@@ -1,6 +1,7 @@
 package com.psvoid.coloniza.world.city.domain
 
 import com.psvoid.coloniza.world.city.domain.buildings.Building
+import com.psvoid.coloniza.world.city.domain.buildings.houses.House
 import com.psvoid.coloniza.world.towns.people.Human
 
 typealias BuildingsMap = MutableList<MutableList<Building>>
@@ -36,7 +37,7 @@ class City {
         for (h in 0 until height) {
             buildings.add(mutableListOf())
             for (w in 0 until width) {
-                buildings[h].add(Building())
+                buildings[h].add(House())
             }
         }
     }

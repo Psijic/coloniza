@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,7 +42,8 @@ fun CityView(
     val buildings by viewModel.buildings.collectAsState()
 
     LazyHorizontalGrid(
-        rows = GridCells.Fixed(viewModel.city.height)
+//        rows = GridCells.Fixed(viewModel.city.height)
+        rows = GridCells.Adaptive(100.dp)
     ) {
         itemsIndexed(buildings.flatten()) { index, item ->
             Building(item)
@@ -53,11 +55,12 @@ fun CityView(
 fun Building(model: Building) {
 
     Image(
+        modifier = Modifier
+            .size(130.dp)
+            .padding(16.dp),
         painter = painterResource(id = model.image),
         contentDescription = null,
-//            contentScale = ContentScale.Crop,
-        modifier = Modifier
-            .size(100.dp)
-            .padding(5.dp)
-    )
+        contentScale = ContentScale.FillWidth,
+
+        )
 }

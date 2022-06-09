@@ -10,13 +10,12 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.navigationBarsWithImePadding
 import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.psvoid.coloniza.R
+import com.psvoid.coloniza.common.presentation.ui.theme.Dimens
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
 import com.psvoid.coloniza.world.city.presentation.ui.MapNavActions
 import com.psvoid.coloniza.world.city.presentation.ui.MapNavGraph
@@ -44,6 +43,7 @@ fun CityScreen(
     viewModel: CityViewModel,
 ) {
     val isUiVisible by viewModel.isUiVisible.collectAsState()
+    val selectedBuilding by viewModel.selectedBuilding.collectAsState()
 
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberBottomSheetState(
@@ -58,10 +58,10 @@ fun CityScreen(
     BottomSheetScaffold(
         modifier = Modifier.navigationBarsWithImePadding(),
         scaffoldState = bottomSheetScaffoldState,
-//        sheetPeekHeight = if (selectedEvent != null) Dimens.bottomSheetPeekHeight else Dimens.bottomSheetNoHeight,
+        sheetPeekHeight = if (selectedBuilding != null) Dimens.bottomSheetPeekHeight else Dimens.bottomSheetNoHeight,
         sheetBackgroundColor = MaterialTheme.colorScheme.background,
         sheetContent = { },
-//        topBar = { if (isUiVisible) MapTopBar() }
+        topBar = { if (isUiVisible) MapTopBar() }
     ) {
         Column(
 //            modifier = Modifier.fillMaxSize()
@@ -95,19 +95,11 @@ fun MapTopBar() {
             }
         },
         actions = {
-            IconButton(onClick = {
-                result.value = " Play icon clicked"
-            }) {
-                Icon(painterResource(R.drawable.ic_domain_24dp), contentDescription = "")
-            }
             IconButton(onClick = {}) {
                 Icon(Icons.Filled.DateRange, contentDescription = "")
             }
             IconButton(onClick = {}) {
                 Icon(Icons.Filled.Search, contentDescription = "")
-            }
-            IconButton(onClick = {}) {
-                Icon(painterResource(R.drawable.ic_list_alt_24), contentDescription = "")
             }
         },
     )
