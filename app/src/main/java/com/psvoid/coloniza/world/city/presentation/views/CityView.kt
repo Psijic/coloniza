@@ -1,6 +1,7 @@
 package com.psvoid.coloniza.world.city.presentation.views
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -16,10 +17,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.psvoid.coloniza.common.presentation.ui.theme.Dimens
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 import com.psvoid.coloniza.world.city.presentation.viewmodels.CityViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import timber.log.Timber
 
 @ExperimentalCoroutinesApi
 @ExperimentalMaterialApi
@@ -46,18 +49,26 @@ fun CityView(
         rows = GridCells.Adaptive(100.dp)
     ) {
         itemsIndexed(buildings.flatten()) { index, item ->
-            Building(item)
+            Building(
+                model = item,
+                onClick = {
+                    Timber.i("Building $index selected: $item")
+                    viewModel.selectedBuilding.value = item })
         }
     }
 }
 
 @Composable
-fun Building(model: Building) {
+fun Building(
+    model: Building,
+    onClick: (Building) -> Unit = {}
+) {
 
     Image(
         modifier = Modifier
+            .clickable { onClick(model) }
             .size(130.dp)
-            .padding(16.dp),
+            .padding(Dimens.paddingSmall),
         painter = painterResource(id = model.image),
         contentDescription = null,
         contentScale = ContentScale.FillWidth,
