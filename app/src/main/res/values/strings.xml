@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Colonization</string>
     <string name="title_activity_main">City</string>
+    <string name="none">None</string>
+    <string name="house">House</string>
+
+    <string name="infrastructure">Infrastructure</string>
+    <string name="resources">Resources</string>
+    <string name="industry">Industry</string>
+    <string name="residential">Residential</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="education">Education</string>
+    <string name="military">Military</string>
+    <string name="government">Government</string>
+    <string name="public_services">Public services</string>
+
 </resources>

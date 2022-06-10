@@ -2,12 +2,13 @@ package com.psvoid.coloniza.world.city.domain.buildings.houses
 
 import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.Building
+import com.psvoid.coloniza.world.city.domain.buildings.BuildingCategory
 
 open class House : Building(
     image = R.drawable.house,
-    category = "Rental",
-    name = "House",
-    level = 0
+    category = BuildingCategory.RESIDENTIAL,
+    name = R.string.house,
+
 ) {
     var comfortRatio = 0
     var rent = 0

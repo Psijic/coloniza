@@ -60,7 +60,7 @@ fun CityScreen(
         scaffoldState = bottomSheetScaffoldState,
         sheetPeekHeight = if (selectedBuilding != null) Dimens.bottomSheetPeekHeight else Dimens.bottomSheetNoHeight,
         sheetBackgroundColor = MaterialTheme.colorScheme.background,
-        sheetContent = { },
+        sheetContent = { selectedBuilding?.let { BuildingDialog(it) } },
         topBar = { if (isUiVisible) MapTopBar() }
     ) {
         Column(
@@ -75,6 +75,8 @@ fun CityScreen(
         }
     }
 }
+
+
 
 @Composable
 fun MapTopBar() {

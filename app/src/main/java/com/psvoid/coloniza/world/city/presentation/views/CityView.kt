@@ -2,12 +2,12 @@ package com.psvoid.coloniza.world.city.presentation.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -25,7 +25,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
 
 @ExperimentalCoroutinesApi
-@ExperimentalMaterialApi
 @ExperimentalMaterial3Api
 @Preview
 @Composable
@@ -36,7 +35,6 @@ private fun CityPreview() {
 }
 
 @ExperimentalCoroutinesApi
-@ExperimentalMaterialApi
 @ExperimentalMaterial3Api
 @Composable
 fun CityView(
@@ -45,15 +43,17 @@ fun CityView(
     val buildings by viewModel.buildings.collectAsState()
 
     LazyHorizontalGrid(
-//        rows = GridCells.Fixed(viewModel.city.height)
-        rows = GridCells.Adaptive(100.dp)
+//        rows = GridCells.Adaptive(100.dp)
+        rows = GridCells.Fixed(viewModel.city.height),
+        modifier = Modifier.height(Dimens.cityViewHeight)
     ) {
         itemsIndexed(buildings.flatten()) { index, item ->
             Building(
                 model = item,
                 onClick = {
                     Timber.i("Building $index selected: $item")
-                    viewModel.selectedBuilding.value = item })
+                    viewModel.selectedBuilding.value = item
+                })
         }
     }
 }
@@ -63,7 +63,6 @@ fun Building(
     model: Building,
     onClick: (Building) -> Unit = {}
 ) {
-
     Image(
         modifier = Modifier
             .clickable { onClick(model) }
@@ -72,6 +71,5 @@ fun Building(
         painter = painterResource(id = model.image),
         contentDescription = null,
         contentScale = ContentScale.FillWidth,
-
-        )
+    )
 }

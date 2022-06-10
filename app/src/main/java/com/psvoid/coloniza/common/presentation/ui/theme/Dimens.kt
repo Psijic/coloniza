@@ -1,8 +1,11 @@
 package com.psvoid.coloniza.common.presentation.ui.theme
 
 import androidx.compose.ui.unit.dp
+import com.psvoid.coloniza.world.city.domain.City
 
 object Dimens {
+    val cityViewHeight = (City.DEFAULT_HEIGHT * 100).dp
+
     val bottomSheetPeekHeight = 166.dp
     val bottomSheetNoHeight = 0.dp
     val roundedCorners = 16.dp

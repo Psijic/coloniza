@@ -30,8 +30,8 @@ android {
             storePassword = keystoreProperties.getProperty("storePassword")
         }
     }
-    compileSdk = 31
-    buildToolsVersion = "31.0.0"
+    compileSdk = 32
+    buildToolsVersion = "32.0.0"
 
     buildFeatures {
         viewBinding = true
@@ -123,9 +123,9 @@ dependencies {
     implementation(Libs.AndroidX.Compose.toolingPreview)
     implementation(Libs.AndroidX.Compose.uiUtil)
     implementation(Libs.AndroidX.Compose.runtime)
-    implementation(Libs.AndroidX.Compose.runtimeLivedata)
-    implementation(Libs.AndroidX.Compose.viewBinding)
-    implementation(Libs.AndroidX.Compose.constraintLayout)
+//    implementation(Libs.AndroidX.Compose.runtimeLivedata)
+//    implementation(Libs.AndroidX.Compose.viewBinding)
+//    implementation(Libs.AndroidX.Compose.constraintLayout)
     implementation(Libs.AndroidX.Compose.navigation)
     debugImplementation(Libs.AndroidX.Compose.tooling)
     debugImplementation(Libs.AndroidX.Compose.uiTestManifest)

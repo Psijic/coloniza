@@ -7,7 +7,7 @@ class World {
         generateTowns()
     }
 
-    var cities: Array<City> = arrayOf()
+    private val cities = mutableListOf<City>()
 
     private fun generateTowns() {
         cities[0] = City()
