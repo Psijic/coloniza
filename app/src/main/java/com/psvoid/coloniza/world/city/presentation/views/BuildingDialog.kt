@@ -31,8 +31,6 @@ fun BuildingDialog(building: Building) {
             BuildDialog(building)
         else //Show building properties
             BuildingProperties(building)
-
-
     }
 
 }
@@ -53,7 +51,8 @@ fun BuildDialog(building: Building) {
         Text(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             text = stringResource(BuildingCategory.values()[state].stringRes),
-            style = MaterialTheme.typography.headlineMedium
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.onBackground
         )
         LazyColumn() {
             val buildings = BuildingCategory.values()[state].buildings

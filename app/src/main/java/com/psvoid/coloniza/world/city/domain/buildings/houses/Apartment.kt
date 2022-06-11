@@ -1,5 +1,5 @@
 package com.psvoid.coloniza.world.city.domain.buildings.houses
 
-class Shack: House() {
+class Apartment: House() {
 
 }
