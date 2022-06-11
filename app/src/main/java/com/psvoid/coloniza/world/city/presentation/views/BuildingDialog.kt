@@ -2,6 +2,8 @@ package com.psvoid.coloniza.world.city.presentation.views
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -12,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 import com.psvoid.coloniza.world.city.domain.buildings.BuildingCategory
+import timber.log.Timber
 
 @Preview
 @Composable
@@ -52,17 +55,18 @@ fun BuildDialog(building: Building) {
             text = stringResource(BuildingCategory.values()[state].stringRes),
             style = MaterialTheme.typography.headlineMedium
         )
-//        LazyColumn(){
-//            itemsIndexed(buildings.flatten()) { index, item ->
-//                Building(
-//                    model = item,
-//                    onClick = {
-//                        Timber.i("Building $index selected: $item")
+        LazyColumn() {
+            val buildings = BuildingCategory.values()[state].buildings
+            itemsIndexed(buildings) { index, item ->
+                BuildingView(
+                    model = item,
+                    onClick = {
+                        Timber.i("Building $index selected: $item")
 //                        viewModel.selectedBuilding.value = item
-//                    })
-//            }
-//        }
-//        }
+                    })
+            }
+        }
+
     }
 }
 

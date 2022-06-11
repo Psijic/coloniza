@@ -6,19 +6,20 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.psvoid.coloniza.R
+import com.psvoid.coloniza.world.city.domain.buildings.houses.House
 import com.psvoid.coloniza.world.towns.items.Item
 import com.psvoid.coloniza.world.towns.people.Human
 
-enum class BuildingCategory(@StringRes val stringRes: Int, val icon: ImageVector) {
-    INFRASTRUCTURE(R.string.infrastructure, Icons.Filled.Construction),
-    RESOURCES(R.string.resources, Icons.Filled.Forest),
-    INDUSTRY(R.string.industry, Icons.Filled.Factory),
-    RESIDENTIAL(R.string.residential, Icons.Filled.House),
-    ENTERTAINMENT(R.string.entertainment, Icons.Filled.Stadium),
-    EDUCATION(R.string.education, Icons.Filled.School),
-    PUBLIC_SERVICES(R.string.public_services, Icons.Filled.Church),
-    MILITARY(R.string.military, Icons.Filled.Fort),
-    GOVERNMENT(R.string.government, Icons.Filled.AccountBalance)
+enum class BuildingCategory(@StringRes val stringRes: Int, val icon: ImageVector, val buildings: List<Building>) {
+    INFRASTRUCTURE(R.string.infrastructure, Icons.Filled.Construction, listOf(House())),
+    RESOURCES(R.string.resources, Icons.Filled.Forest, listOf(House())),
+    INDUSTRY(R.string.industry, Icons.Filled.Factory, listOf(House())),
+    RESIDENTIAL(R.string.residential, Icons.Filled.House, listOf(House())),
+    ENTERTAINMENT(R.string.entertainment, Icons.Filled.Stadium, listOf(House())),
+    EDUCATION(R.string.education, Icons.Filled.School, listOf(House())),
+    PUBLIC_SERVICES(R.string.public_services, Icons.Filled.Church, listOf(House())),
+    MILITARY(R.string.military, Icons.Filled.Fort, listOf(House())),
+    GOVERNMENT(R.string.government, Icons.Filled.AccountBalance, listOf(House()))
 }
 
 open class Building(
@@ -27,7 +28,6 @@ open class Building(
     @StringRes val name: Int = R.string.none,
 ) {
     var level: Int = 0
-
 
     /**
      * список ресурсов необходимых для постройки этого здания: {id: count})

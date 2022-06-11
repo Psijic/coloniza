@@ -48,7 +48,7 @@ fun CityView(
         modifier = Modifier.height(Dimens.cityViewHeight)
     ) {
         itemsIndexed(buildings.flatten()) { index, item ->
-            Building(
+            BuildingView(
                 model = item,
                 onClick = {
                     Timber.i("Building $index selected: $item")
@@ -59,7 +59,7 @@ fun CityView(
 }
 
 @Composable
-fun Building(
+fun BuildingView(
     model: Building,
     onClick: (Building) -> Unit = {}
 ) {
