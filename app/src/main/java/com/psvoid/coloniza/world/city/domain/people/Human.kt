@@ -2,7 +2,7 @@ package com.psvoid.coloniza.world.towns.people
 
 import androidx.annotation.DrawableRes
 import com.psvoid.coloniza.world.city.domain.buildings.Building
-import com.psvoid.coloniza.world.city.domain.buildings.houses.House
+import com.psvoid.coloniza.world.city.domain.buildings.residental.House
 import com.psvoid.coloniza.world.city.domain.people.Attributes
 import com.psvoid.coloniza.world.towns.items.Item
 

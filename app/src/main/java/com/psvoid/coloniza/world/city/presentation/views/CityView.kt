@@ -70,6 +70,6 @@ fun BuildingView(
             .padding(Dimens.paddingSmall),
         painter = painterResource(id = model.image),
         contentDescription = null,
-        contentScale = ContentScale.FillWidth,
+        contentScale = ContentScale.Fit,
     )
 }

@@ -6,8 +6,10 @@ import com.psvoid.coloniza.world.city.domain.City
 object Dimens {
     val cityViewHeight = (City.DEFAULT_HEIGHT * 100).dp
 
-    val bottomSheetPeekHeight = 166.dp
+    val bottomSheetPeekHeight = 512.dp
+    val bottomSheetMinWidth = 100.dp
     val bottomSheetNoHeight = 0.dp
+
     val roundedCorners = 16.dp
 
     val paddingXs = 4.dp
