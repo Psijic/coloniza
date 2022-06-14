@@ -1,6 +1,7 @@
 package com.psvoid.coloniza.world.city.domain.buildings.infrastructure
 
+import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 
-class Depot: Building() {
+data class Depot( override val image: Int = R.drawable.smallgarage ): Building() {
 }

@@ -1,6 +1,7 @@
 package com.psvoid.coloniza.world.city.domain.buildings.entertainment
 
+import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 
-class Tavern: Building() {
+data class Pool(override val image: Int = R.drawable.pool ): Building() {
 }

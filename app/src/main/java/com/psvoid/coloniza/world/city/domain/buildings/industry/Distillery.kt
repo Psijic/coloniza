@@ -1,6 +1,7 @@
 package com.psvoid.coloniza.world.city.domain.buildings.industry
 
+import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 
-class Distillery: Building() {
+data class Distillery( override val image: Int = R.drawable.rumdistillery ): Building() {
 }

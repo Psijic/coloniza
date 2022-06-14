@@ -1,12 +1,12 @@
-package com.psvoid.coloniza.world.city.domain.buildings.residental
+package com.psvoid.coloniza.world.city.domain.buildings.housing
 
 import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 import com.psvoid.coloniza.world.city.domain.buildings.BuildingCategory
 
-open class Conventillo : Building(
+open class House : Building(
     image = R.drawable.house,
-    category = BuildingCategory.RESIDENTIAL,
+    category = BuildingCategory.HOUSING,
     name = R.string.house,
 
 ) {

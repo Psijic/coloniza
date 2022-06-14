@@ -1,6 +1,9 @@
 package com.psvoid.coloniza.world.city.domain.buildings.resources
 
+import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 
-class Farm: Building() {
+data class Farm(override val image: Int = R.drawable.plantfarm): Building(
+
+) {
 }

@@ -9,11 +9,14 @@ import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.education.*
 import com.psvoid.coloniza.world.city.domain.buildings.entertainment.*
 import com.psvoid.coloniza.world.city.domain.buildings.government.*
+import com.psvoid.coloniza.world.city.domain.buildings.housing.*
 import com.psvoid.coloniza.world.city.domain.buildings.industry.*
 import com.psvoid.coloniza.world.city.domain.buildings.infrastructure.*
-import com.psvoid.coloniza.world.city.domain.buildings.publicServices.*
-import com.psvoid.coloniza.world.city.domain.buildings.residental.*
 import com.psvoid.coloniza.world.city.domain.buildings.resources.*
+import com.psvoid.coloniza.world.city.domain.buildings.welfare.Bank
+import com.psvoid.coloniza.world.city.domain.buildings.welfare.Church
+import com.psvoid.coloniza.world.city.domain.buildings.welfare.Hospital
+import com.psvoid.coloniza.world.city.domain.buildings.welfare.Shop
 import com.psvoid.coloniza.world.towns.items.Item
 import com.psvoid.coloniza.world.towns.people.Human
 
@@ -49,7 +52,7 @@ enum class BuildingCategory(@StringRes val stringRes: Int, val icon: ImageVector
             FashionCompany(),
             Foundry(),
             FurnitureFactory(),
-            Jeveller(),
+            JewelryFactory(),
             Juicery(),
             LumberMill(),
             PharmaceuticalCompany(),
@@ -65,7 +68,7 @@ enum class BuildingCategory(@StringRes val stringRes: Int, val icon: ImageVector
             WeaponsFactory(),
         )
     ),
-    RESIDENTIAL(
+    HOUSING(
         R.string.residential, Icons.Filled.House,
         listOf(Apartment(), Conventillo(), Flophouse(), House(), Mansion(), Tenement())
     ),
@@ -75,13 +78,13 @@ enum class BuildingCategory(@StringRes val stringRes: Int, val icon: ImageVector
         listOf(
             Casino(),
             Garden(),
-            GolfCourse(),
+            Rollercoaster(),
             MovieTheater(),
             Museum(),
             NightClub(),
             Restaurant(),
             Stadium(),
-            Tavern(),
+            Pub(),
             Theater()
         )
     ),
@@ -116,9 +119,9 @@ enum class BuildingCategory(@StringRes val stringRes: Int, val icon: ImageVector
 }
 
 open class Building(
-    @DrawableRes val image: Int = R.drawable.buildingruins,
-    val category: BuildingCategory? = null,
-    @StringRes val name: Int = R.string.none,
+    @DrawableRes open val image: Int = R.drawable.buildingruins,
+    open val category: BuildingCategory? = null,
+    @StringRes open val name: Int = R.string.none,
 ) {
     var level: Int = 0
 

@@ -1,6 +1,7 @@
 package com.psvoid.coloniza.world.city.domain.buildings.education
 
+import com.psvoid.coloniza.R
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 
-class TvStation: Building() {
+data class TvStation( override val image: Int = R.drawable.tv ): Building() {
 }
