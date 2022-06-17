@@ -10,10 +10,6 @@ import kotlinx.coroutines.flow.StateFlow
 
 @ExperimentalCoroutinesApi
 class CityViewModel : ViewModel() {
-    val city = City()
-
-    val selectedBuilding = MutableStateFlow<Building?>(null)
-
     private var _isUiVisible = MutableStateFlow(true)
     val isUiVisible: StateFlow<Boolean> = _isUiVisible
 
@@ -25,16 +21,29 @@ class CityViewModel : ViewModel() {
         _isUiVisible.value = !_isUiVisible.value
     }
 
+    val city = City()
+
     private var _buildings: MutableStateFlow<BuildingsMap> = MutableStateFlow(city.buildings)
     val buildings: StateFlow<BuildingsMap> = _buildings
 
-    fun setBuilding(x: Int, y: Int, value: Building) {
-        _buildings.value[x][y] = value
+    val selectedBuilding = MutableStateFlow<Pair<Int, Int>?>(null)
+
+    fun getSelectedBuilding(): Building? = selectedBuilding.value?.let { getBuilding(it.first, it.second) }
+
+    fun getBuilding(x: Int, y: Int) = _buildings.value[x][y]
+
+    private fun setBuilding(x: Int, y: Int, value: Building) {
+        city.buildings[x][y] = value
     }
 
-    init {
 
+    /* Build a new building here */
+    fun build(building: Building) {
+        // Check if there enough resources and all conditions met
 
+        selectedBuilding.value?.let { setBuilding(it.first, it.second, building) }
+        selectedBuilding.value = null
     }
+
 
 }

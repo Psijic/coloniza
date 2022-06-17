@@ -22,29 +22,34 @@ import com.psvoid.coloniza.common.presentation.ui.theme.Dimens.bottomSheetMinWid
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
 import com.psvoid.coloniza.world.city.domain.buildings.Building
 import com.psvoid.coloniza.world.city.domain.buildings.BuildingCategory
+import com.psvoid.coloniza.world.city.presentation.viewmodels.CityViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
 
+@ExperimentalCoroutinesApi
 @Preview
 @Composable
 private fun CityPreview() {
     MainTheme {
-        BuildingDialog(Building())
+        BuildingDialog(Building(), CityViewModel())
     }
 }
 
+@ExperimentalCoroutinesApi
 @Composable
-fun BuildingDialog(building: Building) {
+fun BuildingDialog(building: Building, viewModel: CityViewModel) {
     Column(Modifier.padding(8.dp)) {
         if (building.category == null) // Show build dialog
-            BuildDialog(building)
+            BuildDialog(viewModel)
         else //Show building properties
-            BuildingProperties(building)
+            BuildingProperties(building, viewModel)
     }
 
 }
 
+@ExperimentalCoroutinesApi
 @Composable
-fun BuildDialog(building: Building) {
+fun BuildDialog(viewModel: CityViewModel) {
     var state by remember { mutableStateOf(0) }
     Column {
         TabRow(selectedTabIndex = state) {
@@ -64,12 +69,12 @@ fun BuildDialog(building: Building) {
         )
         LazyVerticalGrid(columns = GridCells.Adaptive(bottomSheetMinWidth)) {
             val buildings = BuildingCategory.values()[state].buildings
-            itemsIndexed(buildings) { index, item ->
+            itemsIndexed(buildings) { index, building ->
                 DialogBuildingView(
-                    model = item,
+                    building = building,
                     onClick = {
-                        Timber.i("Dialog. Building $index selected: $item")
-//                        viewModel.selectedBuilding.value = item
+                        Timber.i("Dialog. Building $index selected: $building")
+                        viewModel.build(building)
                     })
             }
         }
@@ -79,21 +84,22 @@ fun BuildDialog(building: Building) {
 
 @Composable
 fun DialogBuildingView(
-    model: Building,
+    building: Building,
     onClick: (Building) -> Unit = {}
 ) {
     Image(
         modifier = Modifier
-            .clickable { onClick(model) }
+            .clickable { onClick(building) }
             .size(130.dp)
             .padding(Dimens.paddingSmall),
-        painter = painterResource(id = model.image),
+        painter = painterResource(id = building.image),
         contentDescription = null,
         contentScale = ContentScale.Fit,
     )
 }
 
+@ExperimentalCoroutinesApi
 @Composable
-fun BuildingProperties(building: Building) {
+fun BuildingProperties(building: Building, viewModel: CityViewModel) {
 
 }

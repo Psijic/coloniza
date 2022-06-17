@@ -42,6 +42,8 @@ fun CityView(
 ) {
     val buildings by viewModel.buildings.collectAsState()
 
+    Timber.i("CityView")
+
     LazyHorizontalGrid(
 //        rows = GridCells.Adaptive(100.dp)
         rows = GridCells.Fixed(viewModel.city.height),
@@ -51,8 +53,10 @@ fun CityView(
             BuildingView(
                 model = item,
                 onClick = {
-                    Timber.i("Building $index selected: $item")
-                    viewModel.selectedBuilding.value = item
+                    val x = index / viewModel.city.height
+                    val y = index % viewModel.city.height
+                    Timber.i("Building $index ($x, $y) selected: $item")
+                    viewModel.selectedBuilding.value = Pair(x, y)
                 })
         }
     }
