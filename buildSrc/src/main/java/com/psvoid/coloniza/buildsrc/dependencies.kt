@@ -21,14 +21,14 @@ object Libs {
     }
 
     object Kotlin {
-        const val version = "1.6.21"
+        const val version = "1.7.0"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$version"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:$version"
     }
 
     object Coroutines {
-        private const val version = "1.6.0"
+        private const val version = "1.6.2"
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
         const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
@@ -40,7 +40,7 @@ object Libs {
 
     object Network {
         object Ktor {
-            private const val version = "1.6.8"
+            private const val version = "2.0.2"
             const val core = "io.ktor:ktor-client-core:$version"
             const val cio = "io.ktor:ktor-client-cio:$version"
             const val json = "io.ktor:ktor-client-json:$version"
@@ -56,8 +56,6 @@ object Libs {
         }
 
         object PlayServices {
-            const val location = "com.google.android.gms:play-services-location:16.0.0"
-            const val playServicesMaps = "com.google.android.gms:play-services-maps:18.0.2"
             // Integration with Google Play Services Tasks API.
             const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0"
         }
@@ -94,7 +92,8 @@ object Libs {
 
         object Compose {
             const val snapshot = ""
-            const val version = "1.2.0-beta03"
+            const val version = "1.2.0-rc03"
+            const val versionCompiler = "1.2.0"
 
             const val foundation = "androidx.compose.foundation:foundation:$version"
             const val layout = "androidx.compose.foundation:foundation-layout:$version"
@@ -114,7 +113,7 @@ object Libs {
             const val navigation = "androidx.navigation:navigation-compose:2.4.1"
 
             object Material3 {
-                private const val version = "1.0.0-alpha10"
+                private const val version = "1.0.0-alpha14"
                 const val snapshot = ""
                 const val material3 = "androidx.compose.material3:material3:$version"
             }

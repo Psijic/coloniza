@@ -40,7 +40,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.version
+        kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.versionCompiler
     }
 
     defaultConfig {
@@ -167,8 +167,6 @@ dependencies {
 //    implementation (Libs.Google.Maps.mapsCompose)
 
     //Play Services
-    implementation (Libs.Google.PlayServices.playServicesMaps)
-    implementation (Libs.Google.PlayServices.location)
     implementation (Libs.Google.PlayServices.coroutinesPlayServices)
 
     //Media
