@@ -3,6 +3,7 @@ package com.psvoid.coloniza.world.city.presentation.views
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -16,7 +17,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.psvoid.coloniza.common.presentation.ui.theme.Dimens
 import com.psvoid.coloniza.common.presentation.ui.theme.Dimens.bottomSheetMinWidth
 import com.psvoid.coloniza.common.presentation.ui.theme.MainTheme
@@ -38,7 +38,7 @@ private fun CityPreview() {
 @ExperimentalCoroutinesApi
 @Composable
 fun BuildingDialog(building: Building, viewModel: CityViewModel) {
-    Column(Modifier.padding(8.dp)) {
+    Column {
         if (building.category == null) // Show build dialog
             BuildDialog(viewModel)
         else //Show building properties
@@ -87,15 +87,42 @@ fun DialogBuildingView(
     building: Building,
     onClick: (Building) -> Unit = {}
 ) {
-    Image(
-        modifier = Modifier
-            .clickable { onClick(building) }
-            .size(130.dp)
-            .padding(Dimens.paddingSmall),
-        painter = painterResource(id = building.image),
-        contentDescription = null,
-        contentScale = ContentScale.Fit,
-    )
+    Column(modifier = Modifier.padding(Dimens.paddingSmall)) {
+        Image(
+            modifier = Modifier
+                .clickable { onClick(building) }
+                .size(Dimens.imageSize),
+            painter = painterResource(id = building.image),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+        )
+
+        Row {
+            IconText(modifier = Modifier.weight(1f), Building.buildResIcons[0], building.buildCost[0].toString())
+            IconText(modifier = Modifier.weight(1f), Building.buildResIcons[1], building.buildCost[1].toString())
+        }
+        Row {
+            IconText(modifier = Modifier.weight(1f), Building.buildResIcons[2], building.buildCost[2].toString())
+            IconText(modifier = Modifier.weight(1f), Building.buildResIcons[3], building.buildCost[3].toString())
+        }
+    }
+}
+
+@Composable
+fun IconText(modifier: Modifier, icon: Int, text: String) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Image(
+            painter = painterResource(icon), contentDescription = null,
+            modifier = Modifier.size(Dimens.iconMedium)
+        )
+        Text(
+            text = text,
+            style = MaterialTheme.typography.labelMedium
+        )
+    }
 }
 
 @ExperimentalCoroutinesApi

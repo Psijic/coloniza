@@ -29,6 +29,13 @@ object Dimens {
     val paddingEndSmall = paddingStartSmall
     val paddingEnd = paddingStart
 
+    val paddingImage = 0.dp
+
     val spaceNormal = 24.dp
+
+    val iconSmall = 16.dp
+    val iconMedium = 24.dp
+
+    val imageSize = 120.dp
 
 }

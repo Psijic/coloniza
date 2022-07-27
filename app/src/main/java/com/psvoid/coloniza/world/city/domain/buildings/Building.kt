@@ -123,12 +123,18 @@ open class Building(
     open val category: BuildingCategory? = null,
     @StringRes open val name: Int = R.string.none,
 ) {
+    companion object {
+        val buildResIcons =
+            listOf(R.drawable.bungalou, R.drawable.buildingruins, R.drawable.buildingruins, R.drawable.buildingruins)
+    }
+
     var level: Int = 0
 
     /**
      * список ресурсов необходимых для постройки этого здания: {id: count})
+     * Money, Wood, Bricks, Concrete
      */
-    val buildCost: List<Item> = listOf()
+    val buildCost: List<Int> = listOf(0, 100, 2000, 3000)
 
     /**
      * ресурсы возвращаемые при разборе здания - 1/4 от постройки
